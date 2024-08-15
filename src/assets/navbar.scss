@@ -1,0 +1,104 @@
+@import 'variables';
+@import 'mixin';
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30px;
+
+    img {
+        margin-left: 50px;
+    }
+}
+
+.nav-items {
+    @include flex-center;
+    gap: 30px;
+    padding-right: 50px;
+    display: flex; // Default display for larger screens
+
+    a {
+        text-decoration: none;
+        color: $grayish-blue;
+        font-weight: bold;
+        font-size: 14px;
+
+        &:hover {
+            color: $soft-red;
+        }
+    }
+
+
+}
+
+.mobile-btn {
+    background: transparent;
+    border: none;
+    display: none;
+}
+
+@media (max-width: 598px) {
+    .mobile-btn {
+        display: block;
+    }
+
+    .logo {
+        &.active {
+            z-index: 1;
+            background-color: rgba($very-dark-blue, 0.9);
+            position: fixed;
+            top: 0;
+        }
+
+        img {
+            margin-left: 0;
+        }
+    }
+
+    .nav-items {
+        display: none; // Hide nav-items by default in mobile view
+        padding-right: 0;
+
+        a {
+            color: $white;
+        }
+
+        .social-media-logo {
+            position: fixed;
+            bottom: 10px;
+            display: flex;
+            gap: 30px;
+            margin: 20px;
+        }
+
+        .btn-red {
+            width: 100%;
+            background-color: transparent;
+            border: 2px solid $white;
+            color: $white;
+            font-size: 15px;
+
+            &:hover {
+                background-color: transparent;
+                color: $white;
+                border: 2px solid $white;
+            }
+        }
+
+        &.active {
+            display: flex; // Show nav-items when menu is active
+            flex-direction: column;
+            position: fixed; // Ensure it is fixed to the viewport
+            top: 85px; // Align with the top of the viewport
+            right: 0;
+            height: 100%; // Full height of the viewport
+            width: 100%; // Full width of the viewport
+            z-index: 1000; // Ensure it is above other content
+            background-color: rgba($very-dark-blue, 0.9);
+            overflow: auto;
+            padding: 20px
+        }
+    }
+}

@@ -1,0 +1,114 @@
+@import 'variables';
+@import 'mixin';
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $soft-blue;
+    height: auto;
+    padding: 20px;
+    text-align: center;
+    row-gap: 20px;
+
+    .contact-content {
+        width: 100%;
+        max-width: 400px;
+        margin: 20px;
+
+        h1 {
+            color: $white;
+            margin: 10px;
+        }
+
+        p {
+            color: $white;
+            margin: 10px;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            width: 100%;
+
+            .input-field-container {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+
+                position: relative;
+
+
+                input {
+
+                    color: $grayish-blue;
+                    padding: 10px;
+                    font-size: 12px;
+                    width: 100%;
+                    height: 40px;
+                    border: none;
+                    border-radius: 5px;
+                    border: 2px solid transparent;
+                    transition: border-color 0.3s
+                }
+
+                .input-error {
+                    border-color: $soft-red;
+
+                }
+
+                .error-logo {
+                    position: absolute;
+                    right: 10px;
+                    transform: translateY(50%);
+                    pointer-events: none;
+                }
+
+                .error-message {
+                    background-color: $soft-red;
+                    color: $white;
+                    font-size: 10px;
+                    margin-top: 5px;
+                    position: absolute;
+                    bottom: -20px;
+                    left: -10px;
+                    width: 100%;
+                    text-align: left;
+                    border-radius: 0 0 5px 5px;
+                    padding: 3px;
+                    font-style: italic;
+                }
+            }
+
+            .btn-red {
+                width: 100%;
+                padding: 10px;
+                text-align: center;
+                max-width: 100px;
+                height: 40px;
+            }
+        }
+    }
+}
+
+@media (max-width: 568px) {
+    .contact-container {
+        .contact-content {
+            .input-container {
+                flex-direction: column;
+                align-items: center;
+
+                .input-field-container {
+                    width: 100%;
+                    margin-bottom: 10px;
+
+                }
+
+                .btn-red {
+                    max-width: none;
+                }
+            }
+        }
+    }
+}
